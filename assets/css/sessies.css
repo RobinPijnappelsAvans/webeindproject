@@ -7,17 +7,12 @@ body {
   height: 100%;
 }
 
+
 .parallax {
   /* The image used */
   background-image: url('../images/101sessies/101barzachtergrond1.0.jpg');
-
-  /* Set a specific height */
-  height: 500px;
-
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
-  background-position: left;
-  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -26,12 +21,15 @@ h2 {
   text-align: center;
   color: white;
   margin-bottom: 2%;
+  font-size: 60px;
+
 }
 
 
 .box {
   color: white;
   background-color: rgba(117, 75, 75, 0.5);
+
 }
 
 
@@ -42,13 +40,14 @@ h2 {
   /* Then we define how is distributed the remaining space */
   justify-content: space-around;
 
+  /* padding en margin kunnen we misschien weg laten?(weet niet meer waarom het handig is om die op het begin standaard waardes te geven*/
   padding: 0;
   margin: 0;
-  list-style: none;
+  list-style: upper-roman;
+  
 }
 
 .flex-item {
-  /* background: tomato; */
   padding: 5px;
   width: 33vh;
   height: 100%;
@@ -57,33 +56,15 @@ h2 {
   font-weight: bold;
   font-size: 1em;
   text-align: center;
+  margin-bottom: 50px;
 }
+
 
 .flex-item img {
   width: 100%;
 }
 
-/* heel de navagation bbal*/
-.navigation {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
 
-  list-style: none;
-  margin: 0;
-  background: white;
-}
-
-.navigation a {
-  text-decoration: none;
-  display: block;
-  padding: 1em;
-  color: black;
-}
-
-.navigation a:hover {
-  background: red;
-}
 
 @media all and (max-width: 800px) {
   .navigation {
@@ -116,11 +97,11 @@ h2 {
   flex-flow: row wrap;
   font-weight: bold;
   text-align: center;
-  z-index: 1;
   padding-top: 50vh;
 }
 
-.wrapper>* {
+
+.wrapper> {
   padding: 10px;
   flex: 1 100%;
 }
@@ -135,50 +116,51 @@ h2 {
   color: white;
 }
 
-.aside-1 {
+.whitebackground {
   background: white;
 }
 
+/*border none kan ook weg, maar dat is wss voor die lijn bedoeld die alleen zichtbaar word in een bepaalde breedte pixels*/
 aside hr {
   border: none;
 }
 
-.aside-2 {
-  background: white;
-}
-
-footer {
+/*footer {
   order: 4;
 }
+*/
 
 @media all and (min-width: 600px) {
-  .aside {
-    flex: 1 0 0;
+  /* ik heb bij linkerzijde en rechterzijde flex 1 neer gezet waardoor eigenlijk die flex 1 hieronder weg kan, nu kan important ook weg*/
+  aside {
+    flex: 1;
   }
 }
 
 @media all and (min-width: 800px) {
   .main {
-    flex: 3 0px;
+    flex: 3;
   }
 
   aside hr {
     border: 1px;
   }
 
-  .aside-1 {
+  .linkerzijde {
     order: 1;
+    flex: 1;
   }
 
   .main {
     order: 2;
   }
 
-  .aside-2 {
+  .rechterzijde {
     order: 3;
+    flex: 1;
   }
 
-  .footer {
+  footer {
     order: 4;
   }
 }
