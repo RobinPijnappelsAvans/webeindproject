@@ -45,6 +45,7 @@ nav li a {
     border-right: 1px solid #f4f4f4;
     text-decoration: none;
     color: black;
+    position: relative;
 }
 
 nav li a:hover,
@@ -154,6 +155,24 @@ nav .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
     nav .menu-icon {
         display: none;
     }
+
+    nav li a:hover::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    nav li a::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        width: 70%;
+        height: 1px;
+        background-color: #000000;
+
+        transform: translateX(-50%) scaleX(0);
+        transform-origin: 50% 50%;
+        transition: transform 200ms;
+    }
 }
 
 /* Header */
@@ -179,6 +198,7 @@ header h2 span {
     letter-spacing: -1px;
     background: rgba(0, 0, 0, 0.7);
     padding: 10px;
+
 }
 
 header h2 span.spacer {
@@ -394,9 +414,9 @@ footer .footer-links .link-1:before {
 }
 
 footer .footer-right {
-    float: right;
     margin-top: 6px;
     max-width: 180px;
+    justify-content: flex-end;
 }
 
 footer .footer-right a {
@@ -414,27 +434,46 @@ footer .footer-right a {
 }
 
 footer .footer-right a:hover {
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
+    -webkit-animation: rotate-center 0.8s ease-in-out both;
+    animation: rotate-center 0.8s ease-in-out both;
 }
 
 footer p.footer-links a:hover {
     text-decoration: underline;
 }
 
-@media (max-width: 600px) {
+footer .footer-left,
+footer .footer-right {
+    text-align: center;
+}
+footer .footer-right {
+    margin: 0 auto 20px;
+}
 
-    footer .footer-left,
-    footer .footer-right {
-        text-align: center;
+footer .footer-left p.footer-links {
+    line-height: 1.8;
+}
+
+@-webkit-keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
     }
 
-    footer .footer-right {
-        float: none;
-        margin: 0 auto 20px;
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
     }
 
-    footer .footer-left p.footer-links {
-        line-height: 1.8;
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
