@@ -17,6 +17,7 @@ body {
     height: 100%;
 }
 
+
 /* Navbar */
 nav {
     grid-area: menu;
@@ -25,11 +26,14 @@ nav {
     position: fixed;
     width: 100%;
     z-index: 3;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 nav ul {
     margin: 0;
     padding: 0;
+    width: 100%;
     list-style: none;
     overflow: hidden;
     background-color: #fff;
@@ -55,7 +59,6 @@ nav li .active {
 
 nav .logo {
     display: block;
-    float: left;
     font-size: 2em;
     padding: 10px 20px;
     text-decoration: none;
@@ -73,7 +76,6 @@ nav .menu-icon {
     padding: 33px 20px;
     position: relative;
     user-select: none;
-    float: right;
 }
 
 nav .menu-icon .navicon {
@@ -129,20 +131,24 @@ nav .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
     top: 0;
 }
 
-/* 48em = 768px */
-@media (min-width: 48em) {
-    nav li {
-        float: left;
+@media (min-width: 768px) {
+    nav .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex: 3;
+        clear: none;
+        max-height: none;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
     }
 
     nav li a {
         padding: 20px 30px;
-    }
-
-    nav .menu {
-        clear: none;
-        float: right;
-        max-height: none;
     }
 
     nav .menu-icon {
@@ -171,8 +177,6 @@ header h2 span {
     color: white;
     font: bold 24px/45px Helvetica, Sans-Serif;
     letter-spacing: -1px;
-    background: rgb(0, 0, 0);
-    /* fallback color */
     background: rgba(0, 0, 0, 0.7);
     padding: 10px;
 }
@@ -204,10 +208,12 @@ main h1 {
 main hr {
     margin: 1% 0 1% 0;
 }
+
 /* Media & Extra */
 .row {
-    margin: 0 -5px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .column {
@@ -260,7 +266,7 @@ main hr {
 
 @media screen and (max-width: 600px) {
     .column {
-        width: 100%;
+        width: 100% !important;
         display: block;
         margin-bottom: 20px;
     }
@@ -291,6 +297,7 @@ main hr {
     width: 100%;
     transition: 0.5s;
 }
+
 .row-gallery img:hover {
     transform: scale(1.2);
 }

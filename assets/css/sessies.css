@@ -7,7 +7,6 @@ body {
   height: 100%;
 }
 
-
 .parallax {
   /* The image used */
   background-image: url('../images/101sessies/101barzachtergrond1.0.jpg');
@@ -25,26 +24,19 @@ h2 {
 
 }
 
-
 .box {
   color: white;
   background-color: rgba(117, 75, 75, 0.5);
 
 }
 
-
 .flex-container {
   display: flex;
   flex-flow: row wrap;
-
-  /* Then we define how is distributed the remaining space */
   justify-content: space-around;
-
-  /* padding en margin kunnen we misschien weg laten?(weet niet meer waarom het handig is om die op het begin standaard waardes te geven*/
   padding: 0;
   margin: 0;
   list-style: upper-roman;
-  
 }
 
 .flex-item {
@@ -59,12 +51,9 @@ h2 {
   margin-bottom: 50px;
 }
 
-
 .flex-item img {
   width: 100%;
 }
-
-
 
 @media all and (max-width: 800px) {
   .navigation {
@@ -90,7 +79,6 @@ h2 {
   }
 }
 
-/*voor heel layout*/
 
 .wrapper {
   display: flex;
@@ -101,7 +89,7 @@ h2 {
 }
 
 
-.wrapper> {
+.wrapper>* {
   padding: 10px;
   flex: 1 100%;
 }
@@ -115,23 +103,11 @@ h2 {
   background-color: rgba(117, 75, 75, 0.5);
   color: white;
 }
-
-.whitebackground {
+aside {
   background: white;
 }
 
-/*border none kan ook weg, maar dat is wss voor die lijn bedoeld die alleen zichtbaar word in een bepaalde breedte pixels*/
-aside hr {
-  border: none;
-}
-
-/*footer {
-  order: 4;
-}
-*/
-
 @media all and (min-width: 600px) {
-  /* ik heb bij linkerzijde en rechterzijde flex 1 neer gezet waardoor eigenlijk die flex 1 hieronder weg kan, nu kan important ook weg*/
   aside {
     flex: 1;
   }
@@ -143,7 +119,7 @@ aside hr {
   }
 
   aside hr {
-    border: 1px;
+    border: none;
   }
 
   .linkerzijde {
